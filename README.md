@@ -65,7 +65,7 @@ axis([-inf inf -1.05 1.05]);
 grid on ;
 ```
 
-![Reference signal x(n)](KF_02.png)  
+![Reference signal x(n)](https://github.com/ShiDongyuan/Kalman_Filter_for_ANC/blob/d4aa7bf89ee22900b0909cca87f08627555bde0c/Images/KF_02.png)  
 Figure 2: The waveform of the reference signal that is a chirp signal ranging from $20$ to $1600$ Hz.
 
 ## Creating the disturbance and filtered reference
@@ -99,7 +99,7 @@ xlabel('Time (seconds)')   ;
 grid on ;
 ```
 
-![FxLMS algorithm](KF_03.png)   
+![FxLMS algorithm](https://github.com/ShiDongyuan/Kalman_Filter_for_ANC/blob/d4aa7bf89ee22900b0909cca87f08627555bde0c/Images/KF_03.png)   
 Figure 3. The error signal of the single-channel ANC system based on the FxLMS algorithm.
 
 ## Dynamic noise cancellation by the Kalman filter approach
@@ -150,11 +150,11 @@ legend('FxLMS algorithm','KF algorithm');
 grid on ;
 ```
 
-![Kalman algorithm](KF_04.png)  
+![Kalman algorithm](https://github.com/ShiDongyuan/Kalman_Filter_for_ANC/blob/d4aa7bf89ee22900b0909cca87f08627555bde0c/Images/KF_04.png)  
 Figure 4: The error signal of the single-channel ANC system based on the Kalman filter.  
 
-![Control Filter Weights](KF_05.png)  
+![Control Filter Weights](https://github.com/ShiDongyuan/Kalman_Filter_for_ANC/blob/d4aa7bf89ee22900b0909cca87f08627555bde0c/Images/KF_05.png)  
 Figure 5: The time history of the coefficients $w_5(n)$ and $w_60(n)$ in the control filter.  
 
-![FxLMS vs Kalman](KF_06.png)  
+![FxLMS vs Kalman](Images/KF_06.png)  
 Figure 6：Comparison of the error signals in the FxLMS algorithm and the Kalman filter.  
