@@ -1,7 +1,7 @@
 
 # Code Explanation
 
-The section provides a concise introduction to the $KF.mat$ file, which implements the Kalman filter method for a single-channel active noise control (ANC) application. Furthermore, the FxLMS algorithm is conducted as a comparative analysis. The Kalman filter technique employs the modified feed-forward active noise control (ANC) structure, whereas the FxLMS algorithm uses the conventional feed-forward ANC structure.    
+The section provides a concise introduction to the `KF.mat` file, which implements the Kalman filter method for a single-channel active noise control (ANC) application. Furthermore, the FxLMS algorithm is conducted as a comparative analysis. The Kalman filter technique employs the modified feed-forward active noise control (ANC) structure, whereas the FxLMS algorithm uses the conventional feed-forward ANC structure.    
 
 ## Contents
 
@@ -24,7 +24,7 @@ clc       ;
 
 ## Loading the primary and secondary path
 
-This part of the code loads the primary path and secondary path from the Mat files: $PriPath\_3200.mat$ and $SecPath\_200\_6000.mat$. All these paths are synthesized from the band-pass filters, whose impulse responses are illustrated in Figure 1.
+This part of the code loads the primary path and secondary path from the Mat files: `PriPath_3200.mat` and `SecPath_200_6000.mat`. All these paths are synthesized from the band-pass filters, whose impulse responses are illustrated in Figure 1.
 
 ```matlab
 load('PriPath_3200.mat');
@@ -65,7 +65,7 @@ axis([-inf inf -1.05 1.05]);
 grid on ;
 ```
 
-![Reference signal x(n)](Images/KF_02.png)  
+![Reference signal x(n)](https://github.com/ShiDongyuan/Kalman_Filter_for_ANC/blob/24718fbaa840a91ff5786bbebac0fd2b06fc220c/Images/KF_02.png)  
 Figure 2: The waveform of the reference signal that is a chirp signal ranging from $20$ to $1600$ Hz.
 
 ## Creating the disturbance and filtered reference
@@ -153,7 +153,7 @@ grid on ;
 ![Kalman algorithm](Images/KF_04.png)  
 Figure 4: The error signal of the single-channel ANC system based on the Kalman filter.  
 
-![Control Filter Weights](Images/KF_05.png)  
+![Control Filter Weights](https://github.com/ShiDongyuan/Kalman_Filter_for_ANC/blob/24718fbaa840a91ff5786bbebac0fd2b06fc220c/Images/KF_05.png)  
 Figure 5: The time history of the coefficients $w_5(n)$ and $w_60(n)$ in the control filter.  
 
 ![FxLMS vs Kalman](Images/KF_06.png)  
