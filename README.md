@@ -157,4 +157,13 @@ Figure 4: The error signal of the single-channel ANC system based on the Kalman 
 Figure 5: The time history of the coefficients $w_5(n)$ and $w_60(n)$ in the control filter.  
 
 ![FxLMS vs Kalman](Images/KF_06.png)  
-Figure 6：Comparison of the error signals in the FxLMS algorithm and the Kalman filter.  
+Figure 6：Comparison of the error signals in the FxLMS algorithm and the Kalman filter. 
+
+## Reference 
+``` bibtex
+@article{shi2020algorithms,
+  title={Algorithms and implementations to overcome practical issues in active noise control systems},
+  author={Shi, Dongyuan},
+  year={2020},
+  publisher={Nanyang Technological University}
+}
