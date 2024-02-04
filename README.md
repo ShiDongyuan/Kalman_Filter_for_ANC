@@ -10,7 +10,7 @@ $$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}\_{\text{o}},\end{equa
  where $\mathbf{w}_{\text{o}}$ denotes the optimal control filter. Meanwhile, the attenuated noise can be expressed as 
  $$\begin{equation}e\_\mathrm{o}(n)=d(n)-\sum^{L-1}\_{i=0}\hat{s}\_l\cdot\mathbf{x}^\mathrm{T}(n-i)\mathbf{w}\_\mathrm{o}\end{equation}$$
  where $d(n)$ and $\mathbf{x}^\prime(n)$ represent the disturbance signal and the reference vector, respectively, and $\hat{s}$ stands for the $i$-th coefficient of the secondary path estimate. Since the optimal control filter is a constant vector, (2) can be rewritten to
- $$\begin{equation}d(n)=\mathbf{x}^\prime(n)^\mathrm{T}\mathbf{w}_\mathrm{o}(n)+e_\mathrm{o}(n),\end{equation}$$
+ $$\begin{equation}d(n)=\mathbf{x}^\prime(n)\mathbf{w}_\mathrm{o}(n)+e_\mathrm{o}(n),\end{equation}$$
 # Code Explanation
 
 The section provides a concise introduction to the `KF.mat` file, which implements the Kalman filter method for a single-channel active noise control (ANC) application. Furthermore, the FxLMS algorithm is conducted as a comparative analysis. The Kalman filter technique employs the modified feed-forward active noise control (ANC) structure, whereas the FxLMS algorithm uses the conventional feed-forward ANC structure.    
