@@ -9,6 +9,8 @@ In order to employ the Kalman filter methodology, the initial step entails estab
 $$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}\_{\text{o}},\end{equation}$$
  where $\mathbf{w}_{\text{o}}$ denotes the optimal control filter. Meanwhile, the attenuated noise can be expressed as 
  $$\begin{equation}e\_\mathrm{o}(n)=d(n)-\sum^{L-1}\_{i=0}\hat{s}\_l\cdot\mathbf{x}^\mathrm{T}(n-i)\mathbf{w}\_\mathrm{o}\end{equation}$$
+ where $d(n)$ and $\mathbf{x}^\prime(n)$ represent the disturbance signal and the reference vector, respectively, and $\hat{s}$ stands for the $i$-th coefficient of the secondary path estimate. Since the optimal control filter is a constant vector, (2) can be rewritten to
+ $$\begin{equation}d(n)={\mathbf{x}^\prime}^\mathrm{T}(n)\mathbf{w}_\mathrm{o}(n)+e_\mathrm{o}(n),\end{equation}$$
 
 # Code Explanation
 
