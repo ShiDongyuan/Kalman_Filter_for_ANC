@@ -6,9 +6,9 @@ Another renowned approach for adaptive active noise reduction is the modified Fx
 Figure 0: Block diagram of the modified ANC structure based on the FxLMS algorithm.  
 
 In order to employ the Kalman filter methodology, the initial step entails establishing the state function. The subsequent paragraphs will elucidate the state function definition of the ANC system. As we know, when the adaptive algorithm converges, the ANC system should achieve the optimal control filter, which is a constant solution:
-$$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}_{\text{o}},\end{equation}$$
+$$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}\_{\text{o}},\end{equation}$$
  where $\mathbf{w}_{\text{o}}$ denotes the optimal control filter. Meanwhile, the attenuated noise can be expressed as 
- $$\begin{equation}e_\mathrm{o}(n)=d(n)-\sum^{L-1}_{i=0}\hat{s}_l\cdot\mathbf{x}^\mathrm{T}(n-i)\mathbf{w}_\mathrm{o}\end{equation}$$
+ $$\begin{equation}e\_\mathrm{o}(n)=d(n)-\sum^{L-1}\_{i=0}\hat{s}\_l\cdot\mathbf{x}^\mathrm{T}(n-i)\mathbf{w}\_\mathrm{o}\end{equation}$$
 
 # Code Explanation
 
