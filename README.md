@@ -22,6 +22,7 @@ $$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}\_{\text{o}},\end{equa
  
  - The prediction of the auto-correlation matrix of the state error:
  $$\begin{equation}\mathbf{P}(n,n-1)=\mathbf{P}(n-n)\in\mathbb{R}^{N\times N}.\end{equation}$$
+ Here, we assumed that the variance of the final state error equals $0$.
 
 - The Kalman gain matrix is obtained from 
 $$\begin{equation}        \mathbf{K}(n)=\mathbf{P}(n,n-1)\mathbf{x}^\prime(n)\left[\mathbf{x}^\prime(n)^\mathrm{T}\mathbf{P}(n,n-1)\mathbf{x}^\prime(n)+q(n)\right]^{-1},\end{equation}$$
@@ -32,7 +33,10 @@ $$\begin{equation}q(n)=\mathbb{E}[e^2\_\mathrm{o}(n)].\end{equation}$$
 $$\begin{equation}        \mathbf{w}(n)=\hat{\mathbf{w}}(n)+\mathbf{K}(n)\left[d(n)-\mathbf{x}^\prime(n)^\mathrm{T}\hat{\mathbf{w}}(n)\right].\end{equation}$$
 
 - The auto-correlation matrix of the state error:
-$$\begin{equation}        \mathbf{P}(n)=\left[\mathbf{I}-\mathbf{K}(n)\mathbf{x}^\prime(n)\right]\mathbf{P}(n,n-1).\end{equation}$$
+$$\begin{equation}        \mathbf{P}(n)=\left[\mathbf{I}-\mathbf{K}(n)\mathbf{x}^\prime(n)^\mathrm{T}\right]\mathbf{P}(n,n-1).\end{equation}$$
+
+It is worth noting that the variance of the state error is assumed to be $0$ in the above algorithm while maintaining the observed error. This means that the transition of the control filter has a higher degree of confidence than the observation function. Of course, the user can also adjust the two variances during the control progress according to the specific application.  
+
 # Code Explanation
 
 The section provides a concise introduction to the `KF.mat` file, which implements the Kalman filter method for a single-channel active noise control (ANC) application. Furthermore, the FxLMS algorithm is conducted as a comparative analysis. The Kalman filter technique employs the modified feed-forward active noise control (ANC) structure, whereas the FxLMS algorithm uses the conventional feed-forward ANC structure.    
