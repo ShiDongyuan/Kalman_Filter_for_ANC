@@ -9,10 +9,30 @@ In order to employ the Kalman filter methodology, the initial step entails estab
 $$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}\_{\text{o}},\end{equation}$$
  where $\mathbf{w}_{\text{o}}$ denotes the optimal control filter. Meanwhile, the attenuated noise can be expressed as 
  $$\begin{equation}e\_\mathrm{o}(n)=d(n)-\sum^{L-1}\_{i=0}\hat{s}\_l\cdot\mathbf{x}^\mathrm{T}(n-i)\mathbf{w}\_\mathrm{o}(n-i),\end{equation}$$
- where $d(n)$ and $\mathbf{x}^\prime(n)$ represent the disturbance signal and the reference vector, respectively, and $\hat{s}$ stands for the $i$-th coefficient of the secondary path estimate. Since the optimal control filter is a constant vector, (2) can be rewritten to
+ where $d(n)$ and $\mathbf{x}^\prime(n)$ represent the disturbance signal and the reference vector, respectively, and $\hat{s}\_i$ stands for the $i$-th coefficient of the secondary path estimate. Since the optimal control filter is a constant vector, (2) can be rewritten to
  $$\begin{equation}d(n)=\mathbf{x}^\prime(n)^\mathrm{T}\mathbf{w}\_\mathrm{o}(n)+e\_\mathrm{o}(n),\end{equation}$$
  and the filtered reference signal is given by 
  $$\begin{equation}\mathbf{x}^\prime(n)=\sum^{L-1}\_{i=0}\hat{s}_i\mathbf{x}(n-i).\end{equation}$$
+
+ It is natural to let (1) and (3) be the state equation and the observation equation, respectively. The Kalman filter recursive equations are listed out as 
+ 
+ - The prediction for the new state: 
+ $$\begin{equation}\hat{\mathbf{w}}(n)=\mathbf{w}(n-1)\in\mathbb{R}^{N\times 1},\end{equation}$$
+ where $N$ denotes the length of the control filter.
+ 
+ - The prediction of the auto-correlation matrix of the state error:
+ $$\begin{equation}\mathbf{P}(n,n-1)=\mathbf{P}(n-n)\in\mathbb{R}^{N\times N}.\end{equation}$$
+
+- The Kalman gain matrix is obtained from 
+$$\begin{equation}        \mathbf{K}(n)=\mathbf{P}(n,n-1)\mathbf{x}^\prime(n)\left[\mathbf{x}^\prime(n)^\mathrm{T}\mathbf{P}(n,n-1)\mathbf{x}^\prime(n)+q(n)\right]^{-1},\end{equation}$$
+where $q(n)$ denotes the variance of the observe error:
+$$\begin{equation}q(n)=\mathbb{E}[e^2\_\mathrm{o}(n)].\end{equation}$$
+
+- The estimate of the state is given by 
+$$\begin{equation}        \mathbf{w}(n)=\hat{\mathbf{w}}(n)+\mathbf{K}(n)\left[d(n)-\mathbf{x}^\prime(n)^\mathrm{T}\hat{\mathbf{w}}(n)\right].\end{equation}$$
+
+- The auto-correlation matrix of the state error:
+$$\begin{equation}        \mathbf{P}(n)=\left[\mathbf{I}-\mathbf{K}(n)\mathbf{x}^\prime(n)\right]\mathbf{P}(n,n-1).\end{equation}$$
 # Code Explanation
 
 The section provides a concise introduction to the `KF.mat` file, which implements the Kalman filter method for a single-channel active noise control (ANC) application. Furthermore, the FxLMS algorithm is conducted as a comparative analysis. The Kalman filter technique employs the modified feed-forward active noise control (ANC) structure, whereas the FxLMS algorithm uses the conventional feed-forward ANC structure.    
