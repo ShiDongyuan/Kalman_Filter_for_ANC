@@ -35,7 +35,7 @@ $$\begin{equation}        \mathbf{w}(n)=\hat{\mathbf{w}}(n)+\mathbf{K}(n)\left[d
 - The auto-correlation matrix of the state error:
 $$\begin{equation}        \mathbf{P}(n)=\left[\mathbf{I}-\mathbf{K}(n)\mathbf{x}^\prime(n)^\mathrm{T}\right]\mathbf{P}(n,n-1).\end{equation}$$
 
-It is worth noting that the variance of the state error is assumed to be $0$ in the above algorithm while maintaining the observed error. This means that the transition of the control filter has a higher degree of confidence than the observation function. Of course, the user can also adjust the two variances during the control progress according to the specific application.  
+It should be emphasized that the algorithm assumes a variance of $0$ for the state error, while still accounting for the observed error. This implies that the control filter's transition has a greater level of confidence compared to the observation function. Certainly, the user can also modify the two variations while controlling the process, based on the particular application.
 
 # Code Explanation
 
