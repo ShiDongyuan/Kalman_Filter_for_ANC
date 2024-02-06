@@ -1,5 +1,11 @@
 # Kalman Filter Approach for Active Noise Control
 
+## Introduction
+
+This article offers an elaborate description of the Kalman filter code employed in the active control system. Conventional active noise management methods usually employ an adaptive filter, such as the filtered reference least mean square (FxLMS) algorithm, to adjust to changes in the primary noise and acoustic environment. Nevertheless, the slow convergence characteristics of the FxLMS algorithm typically impact the effectiveness of reducing dynamic noise. Hence, this study suggests employing the Kalman filter in the active noise control (ANC) system to enhance the efficacy of noise reduction for dynamic noise. The ANC application effectively utilizes the Kalman filter with a novel dynamic ANC model.  The numerical simulation revealed that the proposed Kalman filter exhibits superior convergence performance compared to the FxLMS algorithm for handling dynamic noise.
+
+## Basic Theoretical Principle
+
 One renowned approach for adaptive active noise reduction is the modified FxLMS algorithm, depicted in Figure 1. The internal model technique utilizes the secondary path estimate to recover the disturbance from the error signal, enabling the use of the traditional least mean square (LMS) algorithm for noise control. This altered configuration can also be employed to implement the Kalman filter methodology, wherein the LMS model is substituted with the Kalman filter to complete the updating of the control filter.
 
 ![Modified FxLMS algorithm](Images/Modified-FxLMS.jpg)  
