@@ -1,6 +1,6 @@
 # Kalman Filter Approach for Active Noise Control
 
-Another renowned approach for adaptive active noise reduction is the modified FxLMS algorithm, depicted in Figure 1. The internal model technique utilizes the secondary path estimate to recover the disturbance from the error signal, enabling the use of the traditional least mean square (LMS) algorithm for noise control. This altered configuration can also be employed to implement the Kalman filter methodology, wherein the LMS model is substituted with the Kalman filter to complete the updating of the control filter.
+One renowned approach for adaptive active noise reduction is the modified FxLMS algorithm, depicted in Figure 1. The internal model technique utilizes the secondary path estimate to recover the disturbance from the error signal, enabling the use of the traditional least mean square (LMS) algorithm for noise control. This altered configuration can also be employed to implement the Kalman filter methodology, wherein the LMS model is substituted with the Kalman filter to complete the updating of the control filter.
 
 ![Modified FxLMS algorithm](Images/Modified-FxLMS.jpg)  
 Figure 1: Block diagram of the modified ANC structure based on the FxLMS algorithm.  
