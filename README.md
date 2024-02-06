@@ -89,6 +89,12 @@ Figure 3: The impulse response of the primary path and the secondary path.
 
 The sampling rate of the active noise control (ANC) system is set to $16000$ Hz, and the simulation duration is $0.25$ second. To simulate the dynamic noise, the primary noise in this ANC system is a chirp signal, whose frequency gradually varies from $20$ Hz to $1600$ Hz, as shown in Figure 4.
 
+| Parameter | Definition        | Parameter | Definition           |
+|-----------|--------------------|-----------|----------------------|
+| fs        | Sampling rate      | T         | Simulation duration  |
+| y         | Primary noise     | N         | Simulation taps      |
+
+
 ```matlab
 fs = 16000     ; % sampling rate 16 kHz.
 T  = 0.25      ; % Simulation duration (seconds).
@@ -113,6 +119,14 @@ Figure 4: The waveform of the reference signal that is a chirp signal ranging fr
 
 The disturbance and filtered reference used in the ANC system are created by passing the chirp signal through the loaded primary and secondary paths.
 
+| Parameter | Definition                 | Parameter | Definition             |
+|-----------|----------------------------|-----------|------------------------|
+| X         | Reference signal vector    | y         | Primary noise          |
+| D         | Disturbance vector         | PriPath   | Primary path vector    |
+| Rf        | Filtered reference vector  | SecPath   | Secondary path vector  |
+
+
+
 ```matlab
 %X  = 0.4*sin(2*pi*fw*t)+0.3*sin(2*pi*fe*t);
 X = y;
@@ -125,6 +139,13 @@ Rf = filter(SecPath,1,X);
 ## Dynamic noise cancellation by the single channel FxLMS algorithm
 
 In this part, the single-channel FxLMS algorithm is used to reduce the chirp disturbance. The length of the control filter in the FxLMS algorithm has $80$ taps, and the step size is set to $0.0005$. Figure 5 shows the error signal picked up by the error sensor in the ANC system. This figure shows that the FxLMS algorithm can not fully attenuate this dynamic noise during the $0.25$ second. 
+
+| Parameter | Definition                        | Parameter | Definition                                 |
+|-----------|-----------------------------------|-----------|--------------------------------------------|
+| X         | Reference signal vector           | y         | Control signal                             |
+| D         |  Disturbance vector               | e         | Error signal                              |
+| L         | Length of the control filter      | muW       | Step size                                |
+
 
 ```matlab
 L   = 80    ;
@@ -202,10 +223,13 @@ grid on ;
 Figure 6: The error signal of the single-channel ANC system based on the Kalman filter.  
 
 ![Control Filter Weights](https://github.com/ShiDongyuan/Kalman_Filter_for_ANC/blob/24718fbaa840a91ff5786bbebac0fd2b06fc220c/Images/KF_05.png)  
-Figure 7: The time history of the coefficients $w_5(n)$ and $w_60(n)$ in the control filter.  
+Figure 7: The time history of the coefficients $w\_{5}(n)$ and $w\_{60}(n)$ in the control filter.  
 
 ![FxLMS vs Kalman](Images/KF_06.png)  
 Figure 8：Comparison of the error signals in the FxLMS algorithm and the Kalman filter. 
+
+## Summary
+This document provides a detailed introduction to the Kalman filter code used in the active control system. Traditional active noise control typically adapts the adaptive filter, such as the filtered reference least mean square (FxLMS) algorithm, to adapt to the variations of the primary noise and acoustic environment. However, the sluggish convergence behavior of the FxLMS algorithm usually affects the noise reduction for the dynamic noise. Therefore, this work proposes using the Kalman filter in the ANC system to improve the noise reduction performance for dynamic noise. With a novel dynamic ANC model, the Kalman filter is excellently deployed in the ANC application.  The numerical simulation demonstrated that the proposed Kalman filter has a much better convergence performance than the FxLMS algorithm in dealing with dynamic noise. 
 
 ## Reference 
 ``` bibtex
