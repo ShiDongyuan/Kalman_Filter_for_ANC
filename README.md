@@ -12,7 +12,7 @@ $$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}\_{\text{o}},\end{equa
  where $d(n)$ and $\mathbf{x}^\prime(n)$ represent the disturbance signal and the reference vector, respectively, and $\hat{s}\_i$ stands for the $i$-th coefficient of the secondary path estimate. Since the optimal control filter is a constant vector, (2) can be rewritten to
  $$\begin{equation}d(n)=\mathbf{x}^\prime(n)^\mathrm{T}\mathbf{w}\_\mathrm{o}(n)+e\_\mathrm{o}(n),\end{equation}$$
  and the filtered reference signal is given by 
- $$\begin{equation}\mathbf{x}^\prime(n)=\sum^{L-1}\_{i=0}\hat{s}_i\mathbf{x}(n-i).\end{equation}$$
+ $$\begin{equation}\mathbf{x}^\prime(n)=\sum^{L-1}\_{i=0}\hat{s}\_i\mathbf{x}(n-i).\end{equation}$$
 
  It is natural to let (1) and (3) be the state equation and the observation equation, respectively. The Kalman filter recursive equations are listed out as 
  
@@ -150,7 +150,7 @@ The Kalman filter is employed in the signal-channel ANC system to track the fluc
 | W         | Control filter                    | ek        | Error signal                              |
 | Xd        | Input vector                      | yt        | Anti-noise                                |
 | Rf        | Reference signal vector           |           |                                            |
-|
+
 ```matlab
 q  = 0.005;
 P  = eye(L);
