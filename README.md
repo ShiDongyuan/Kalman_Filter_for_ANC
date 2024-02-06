@@ -144,6 +144,13 @@ Figure 3. The error signal of the single-channel ANC system based on the FxLMS a
 
 The Kalman filter is employed in the signal-channel ANC system to track the fluctuation of the chirp disturbance. The variance of the observed noise is initially set to $0.005$. Figure 4 shows the error signal of the Kalman filter algorithm. Additionally, Figure 5 illustrates the variation of the coefficients $w_5(n)$ and $w_{60}(n)$ as time progresses. The outcome illustrates that the Kalman filter effectively mitigates the chirp disturbances. The Kalman filter approach has markedly superior convergence behavior compared to the FxLMS method, as illustrated in Figure 6. 
 
+| Parameter | Definition                        | Parameter | Definition                                 |
+|-----------|-----------------------------------|-----------|--------------------------------------------|
+| q         | Variance of observe error         | P         | Cross-correlation matrix of state error   |
+| W         | Control filter                    | ek        | Error signal                              |
+| Xd        | Input vector                      | yt        | Anti-noise                                |
+| Rf        | Reference signal vector           |           |                                            |
+|
 ```matlab
 q  = 0.005;
 P  = eye(L);
