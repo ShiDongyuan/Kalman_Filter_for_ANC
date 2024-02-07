@@ -46,6 +46,9 @@ $$\begin{equation}        \mathbf{P}(n)=\left[\mathbf{I}-\mathbf{K}(n)\mathbf{x}
 
 It should be emphasized that the algorithm assumes a variance of $0$ for the state error, while still accounting for the observed error. This implies that the control filter's transition has a greater level of confidence compared to the observation function. Certainly, the user can also modify the two variations while controlling the process, based on the particular application.
 
+By summarizing the above equations, the Kalman filter for the active noise control is given by:
+![Kalman filter algorithm](Images/KF_algorithm.jpg)
+
 # Code Explanation
 
 The section provides a concise introduction to the `KF.mat` file, which implements the Kalman filter method for a single-channel active noise control (ANC) application. Furthermore, the FxLMS algorithm is conducted as a comparative analysis. The Kalman filter technique employs the modified feed-forward active noise control (ANC) structure, whereas the FxLMS algorithm uses the conventional feed-forward ANC structure.    
