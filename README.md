@@ -24,7 +24,7 @@ $$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}\_{\text{o}},\end{equa
  $$\begin{equation}d(n)=\mathbf{x}^\prime(n)^\mathrm{T}\mathbf{w}\_\mathrm{o}(n)+e\_\mathrm{o}(n),\end{equation}$$
 
  and the filtered reference signal is given by 
- 
+
  $$\begin{equation}\mathbf{x}^\prime(n)=\sum^{L-1}\_{i=0}\hat{s}\_i\mathbf{x}(n-i).\end{equation}$$
 
  It is natural to let (1) and (3) be the state equation and the observation equation, respectively, as shown in Figure 2. The Kalman filter recursive equations are listed out as 
@@ -33,23 +33,32 @@ $$\begin{equation}\mathbf{w}(n+1)=\mathbf{w}(n)=\mathbf{w}\_{\text{o}},\end{equa
  Figure 2: Signal-flow graph representation of a linear, discrete-time dynamic ANC model.
  
  - The prediction for the new state: 
+
  $$\begin{equation}\hat{\mathbf{w}}(n)=\mathbf{w}(n-1)\in\mathbb{R}^{N\times 1},\end{equation}$$
+
  where $N$ denotes the length of the control filter.
  
  - The prediction of the auto-correlation matrix of the state error:
+
  $$\begin{equation}\mathbf{P}(n,n-1)=\mathbf{P}(n-n)\in\mathbb{R}^{N\times N}.\end{equation}$$
+
  Here, we assumed that the variance of the final state error equals $0$.
 
 - The Kalman gain matrix is obtained from 
-$$\begin{equation}        \mathbf{K}(n)=\mathbf{P}(n,n-1)\mathbf{x}^\prime(n)\left[\mathbf{x}^\prime(n)^\mathrm{T}\mathbf{P}(n,n-1)\mathbf{x}^\prime(n)+q(n)\right]^{-1},\end{equation}$$
+
+$$\begin{equation}\mathbf{K}(n)=\mathbf{P}(n,n-1)\mathbf{x}^\prime(n)\left[\mathbf{x}^\prime(n)^\mathrm{T}\mathbf{P}(n,n-1)\mathbf{x}^\prime(n)+q(n)\right]^{-1},\end{equation}$$
+
 where $q(n)$ denotes the variance of the observe error:
+
 $$\begin{equation}q(n)=\mathbb{E}[e^2\_\mathrm{o}(n)].\end{equation}$$
 
 - The estimate of the state is given by 
-$$\begin{equation}        \mathbf{w}(n)=\hat{\mathbf{w}}(n)+\mathbf{K}(n)\left[d(n)-\mathbf{x}^\prime(n)^\mathrm{T}\hat{\mathbf{w}}(n)\right].\end{equation}$$
+
+$$\begin{equation}\mathbf{w}(n)=\hat{\mathbf{w}}(n)+\mathbf{K}(n)\left[d(n)-\mathbf{x}^\prime(n)^\mathrm{T}\hat{\mathbf{w}}(n)\right].\end{equation}$$
 
 - The auto-correlation matrix of the state error:
-$$\begin{equation}        \mathbf{P}(n)=\left[\mathbf{I}-\mathbf{K}(n)\mathbf{x}^\prime(n)^\mathrm{T}\right]\mathbf{P}(n,n-1).\end{equation}$$
+
+$$\begin{equation}\mathbf{P}(n)=\left[\mathbf{I}-\mathbf{K}(n)\mathbf{x}^\prime(n)^\mathrm{T}\right]\mathbf{P}(n,n-1).\end{equation}$$
 
 It should be emphasized that the algorithm assumes a variance of $0$ for the state error, while still accounting for the observed error. This implies that the control filter's transition has a greater level of confidence compared to the observation function. Certainly, the user can also modify the two variations while controlling the process, based on the particular application.
 
